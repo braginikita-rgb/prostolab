@@ -36,7 +36,7 @@ export function ContactSection() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ delay: 0.2 }}
-                    onClick={openModal}
+                    onClick={() => openModal()}
                     className="px-8 py-4 bg-orange-600 text-white rounded-full text-xl font-bold shadow-[0_4px_20px_rgba(234,88,12,0.4)] hover:bg-orange-500 hover:shadow-[0_4px_30px_rgba(234,88,12,0.6)] transition-all"
                 >
                     Связаться с нами
