@@ -1,0 +1,328 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Register custom property for smooth animation */
+@property --float-y {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+/* ===== Design Tokens ===== */
+:root {
+  /* Deep Dark Base */
+  --color-bg: #0a0a0a;
+
+  /* Text */
+  --color-text: #F8FAFC;
+  /* Slate 50 */
+  --color-muted: #94A3B8;
+  /* Slate 400 */
+
+  /* Accents (Consistent Orange/Purple) */
+  --color-accent-orange: #F97316;
+  --color-accent-purple: #8B5CF6;
+
+  /* Unified Glass Token (Premium) */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  /* Subtle border */
+  --glass-highlight: rgba(255, 255, 255, 0.1);
+  /* Top edge light */
+  --glass-shadow: rgba(0, 0, 0, 0.5);
+  /* Deep shadow */
+}
+
+/* ===== Base Reset for Full-Width ===== */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-inter), sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* ===== Unified Glass Panel ===== */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 4px 24px -1px var(--glass-shadow),
+    inset 0 1px 0 0 var(--glass-highlight);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 40px -8px var(--glass-shadow),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+}
+
+/* ===== Dark Background Blobs ===== */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+/* ===== Liquid Glass Chip - Bigger Size ===== */
+.glass-chip {
+  display: inline-block;
+  background: var(--color-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: 9999px;
+  padding: 0.625rem 1.375rem;
+  min-height: 42px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 var(--color-glass-highlight);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Desktop: slightly larger */
+@media (min-width: 768px) {
+  .glass-chip {
+    padding: 0.75rem 1.5rem;
+    min-height: 44px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
+
+/* Top-left highlight shine */
+
+
+/* Hover effect for desktop */
+@media (hover: hover) {
+  .glass-chip:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+}
+
+/* ===== Liquid Glass Service Cards - Elongated ===== */
+.glass-card-elongated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Liquid Glass Style - More Transparent with Texture */
+  background: rgba(255, 255, 255, 0.25);
+  /* Very transparent */
+  backdrop-filter: blur(40px) saturate(180%);
+  /* Strong blur + color boost */
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+
+  /* Glass texture overlay */
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0px, transparent 1px, transparent 2px, rgba(255, 255, 255, 0.03) 3px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0px, transparent 1px, transparent 2px, rgba(255, 255, 255, 0.03) 3px),
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+  background-size: 3px 3px, 3px 3px, 100% 100%, 100% 100%;
+  background-blend-mode: overlay;
+
+  /* Smooth liquid border */
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+
+  border-radius: 999px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+
+  /* Deep, wet shine shadow (Light Mode) */
+  box-shadow:
+    0 20px 40px -12px var(--color-glass-shadow),
+    /* Soft dark drop shadow */
+    0 0 0 1px rgba(255, 255, 255, 0.9),
+    /* White outer ring */
+    inset 0 1px 0 0 rgba(255, 255, 255, 1.0),
+    /* Bright top highlight */
+    inset 0 0 20px 0 rgba(255, 255, 255, 0.5);
+  /* Inner white glow */
+
+  transition: all 0.4s cubic-bezier(0.25, 0.4, 0.25, 1);
+  cursor: pointer;
+  text-align: center;
+  will-change: transform;
+
+  /* CSS variable for floating animation */
+  --float-y: 0px;
+  animation: float-var 8s ease-in-out infinite;
+}
+
+/* Animation that sets CSS variable */
+@keyframes float-var {
+
+  0%,
+  100% {
+    --float-y: 0px;
+  }
+
+  50% {
+    --float-y: -5px;
+  }
+}
+
+/* Floating container - wraps cards for smooth animation */
+.float-container {
+  animation: float-smooth 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes float-smooth {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+
+
+
+/* Liquid reflection pseduo-element */
+.glass-card-elongated::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  padding: 1px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Large service cards - elongated rectangles */
+.glass-card-large {
+  width: 200px;
+  height: 120px;
+  font-size: 1.25rem;
+  padding: 1.5rem 2rem;
+}
+
+/* Medium feature cards - smaller elongated rectangles */
+.glass-card-medium {
+  width: 200px;
+  height: 115px;
+  font-size: 1.25rem;
+  padding: 1.375rem 2rem;
+}
+
+/* ===== Floating Navigation Island ===== */
+.nav-island {
+  /* Glass effect matching center cards */
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+
+  /* Glass texture */
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0px, transparent 1px, transparent 2px, rgba(255, 255, 255, 0.03) 3px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0px, transparent 1px, transparent 2px, rgba(255, 255, 255, 0.03) 3px),
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+  background-size: 3px 3px, 3px 3px, 100% 100%, 100% 100%;
+  background-blend-mode: overlay;
+
+  /* Rounded corners */
+  border-radius: 999px;
+
+  /* Subtle border and shadow */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px -8px rgba(148, 163, 184, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.9),
+    inset 0 1px 0 0 rgba(255, 255, 255, 1.0),
+    inset 0 0 20px 0 rgba(255, 255, 255, 0.3);
+
+  transition: all 0.3s ease;
+}
+
+/* Desktop: larger elongated cards and use CSS variables for positioning */
+@media (min-width: 768px) {
+  .glass-card-elongated {
+    transform: translate(calc(-50% + var(--desktop-x, 0px)), calc(-50% + var(--desktop-y, 0px) + var(--float-y, 0px)));
+  }
+
+  .glass-card-large {
+    width: 280px;
+    height: 140px;
+    font-size: 1.75rem;
+    padding: 2rem 3rem;
+  }
+
+  .glass-card-medium {
+    width: 260px;
+    height: 130px;
+    font-size: 1.625rem;
+    padding: 1.625rem 2.5rem;
+  }
+}
+
+/* Subtle gradient overlay on hover */
+.glass-card-elongated::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glass-card-elongated:hover::before {
+  opacity: 1;
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .gradient-blob {
+    animation: none !important;
+  }
+
+  .glass-chip {
+    transition: none;
+  }
+
+  .glass-card-elongated {
+    transition: none;
+  }
+
+  .glass-card {
+    transition: none;
+  }
+}

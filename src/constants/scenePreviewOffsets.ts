@@ -1,0 +1,6 @@
+export const SCENE_PREVIEW_OFFSETS = {
+    HOW_WE_WORK_TO_ABOUT: '250px',
+    ABOUT_TO_PACKAGES: '200px',
+    PACKAGES_TO_MOON: '350px',
+    MOON_TO_CONTACT: '150px',
+};
