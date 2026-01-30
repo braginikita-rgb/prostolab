@@ -49,11 +49,11 @@ export function Footer() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-20 p-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative group"
+                    className="mb-20 p-2 rounded-[40px] bg-white/5 border border-white/10 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative group"
                 >
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                    <div className="relative z-10 px-6 py-4">
+                    <div className="relative z-10 px-6 py-4 text-center md:text-left">
                         <h3 className="text-2xl md:text-3xl font-bold text-white mb-1">
                             Готовы к запуску?
                         </h3>

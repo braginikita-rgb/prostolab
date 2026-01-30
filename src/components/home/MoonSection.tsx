@@ -6,7 +6,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Scene6Bg } from "./backgrounds/SceneBackgrounds";
 import { SCENE_PREVIEW_OFFSETS } from "@/constants/scenePreviewOffsets";
 
+import { useModal } from "@/components/ui/ModalContext";
+
 export function MoonSection() {
+    const { openModal } = useModal();
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -161,9 +164,9 @@ export function MoonSection() {
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-10 text-left">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 mb-10 text-left">
                             {/* Analytics */}
-                            <div className="bg-black/60 p-6 lg:p-8 rounded-3xl border border-white/10 hover:bg-black/80 transition-colors group">
+                            <div className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group">
                                 <h4 className="text-white font-bold mb-4 flex items-center gap-3 text-xl transition-colors">
                                     <span className="w-3 h-3 rounded-full bg-orange-500 shadow-[0_0_15px_rgba(249,115,22,0.6)]" /> Аналитика
                                 </h4>
@@ -175,7 +178,7 @@ export function MoonSection() {
                             </div>
 
                             {/* Ads */}
-                            <div className="bg-black/60 p-6 lg:p-8 rounded-3xl border border-white/10 hover:bg-black/80 transition-colors group">
+                            <div className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group">
                                 <h4 className="text-white font-bold mb-4 flex items-center gap-3 text-xl transition-colors">
                                     <span className="w-3 h-3 rounded-full bg-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.6)]" /> Реклама
                                 </h4>
@@ -187,7 +190,7 @@ export function MoonSection() {
                             </div>
 
                             {/* Efficiency */}
-                            <div className="bg-black/60 p-6 lg:p-8 rounded-3xl border border-white/10 hover:bg-black/80 transition-colors group">
+                            <div className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group">
                                 <h4 className="text-white font-bold mb-4 flex items-center gap-3 text-xl transition-colors">
                                     <span className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)]" /> Эффективность
                                 </h4>
@@ -200,7 +203,10 @@ export function MoonSection() {
                         </div>
 
                         <div className="flex flex-col items-center">
-                            <button className="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-orange-500 to-purple-600 text-white rounded-full font-bold hover:scale-[1.02] hover:shadow-[0_10px_30px_-5px_rgba(249,115,22,0.4)] transition-all shadow-lg shadow-orange-500/20 mb-4 text-lg">
+                            <button
+                                onClick={() => openModal('links')}
+                                className="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-orange-500 to-purple-600 text-white rounded-full font-bold hover:scale-[1.02] hover:shadow-[0_10px_30px_-5px_rgba(249,115,22,0.4)] transition-all shadow-lg shadow-orange-500/20 mb-4 text-lg"
+                            >
                                 Обсудить проект
                             </button>
                             <p className="text-xs text-white/50">

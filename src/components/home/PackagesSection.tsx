@@ -74,7 +74,7 @@ export function PackagesSection() {
         <section
             id="packages"
             ref={containerRef}
-            className="relative z-30 min-h-screen w-full pt-48 pb-64 overflow-hidden bg-slate-50"
+            className="relative z-30 min-h-screen w-full pt-24 md:pt-48 pb-32 md:pb-64 overflow-hidden bg-slate-50"
         >
             {/* Light Background Pattern */}
             <div className="absolute inset-0 z-0 opacity-[0.4]"

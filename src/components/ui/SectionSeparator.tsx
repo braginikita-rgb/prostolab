@@ -8,9 +8,10 @@ interface SectionSeparatorProps {
     fill?: string; // Color of the Next section (e.g., #0a0a0a or #f8fafc)
 }
 
+
 export function SectionSeparator({ type = 'convex', className = '', fill = '#0a0a0a' }: SectionSeparatorProps) {
     return (
-        <div className={`absolute left-0 right-0 w-full overflow-visible leading-none z-20 ${className}`} style={{ height: '80px', bottom: '-1px' }}>
+        <div className={`absolute left-0 right-0 w-full overflow-visible leading-none z-20 h-[40px] md:h-[80px] ${className}`} style={{ bottom: '-1px' }}>
             {type === 'convex' ? (
                 // Convex: Curves OUTWARD (Valley / Dark Bulge Down) (Light shines from top)
                 <svg className="block w-full h-full overflow-visible" viewBox="0 0 1440 80" preserveAspectRatio="none">

@@ -36,15 +36,18 @@ const DESKTOP_POSITIONS: TagPosition[] = [
 ];
 
 const MOBILE_POSITIONS: TagPosition[] = [
-    // Mobile Safe Rect: X 22-78%, Y 30-72%
-    { id: "terms", label: "Сроки", x: 50, y: 14, size: "xl" },
-    { id: "fast", label: "Быстро", x: 78, y: 30, size: "medium" },
+    // Mobile Zig-Zag Layout - Spaced out to avoid center text overlap
+    // Left Top (Higher)
+    { id: "terms", label: "Сроки", x: 25, y: 15, size: "large" },
+    // Right Top (Lower than first, but still high)
+    { id: "result", label: "Результат", x: 75, y: 22, size: "large" },
 
-    { id: "clear", label: "Прозрачно", x: 82, y: 56, size: "xl" },
-    { id: "support", label: "Поддержка", x: 60, y: 84, size: "medium" },
+    // Center Content Zone (approx 30-70% is now safe)
 
-    { id: "adapt", label: "Адаптивно", x: 32, y: 84, size: "small" },
-    { id: "result", label: "Результат", x: 18, y: 56, size: "xl" },
+    // Left Bottom
+    { id: "adapt", label: "Адаптивно", x: 25, y: 78, size: "large" },
+    // Right Bottom (Lower)
+    { id: "clear", label: "Прозрачно", x: 75, y: 88, size: "medium" },
 ];
 
 export function TagCloud({ scrollYProgress }: TagCloudProps) {
@@ -124,16 +127,16 @@ function Tag({ data, index, reducedMotion, isMobile, mouseX, mouseY }: TagProps)
 
     // Sizes
     const sizeClasses = {
-        xl: "px-10 py-4 text-xl md:text-[26px] font-bold",
-        large: "px-9 py-3.5 text-xl md:text-[24px] font-bold",
-        medium: "px-7 py-3 text-lg md:text-xl font-semibold",
-        small: "px-5 py-2.5 text-base md:text-lg font-medium"
+        xl: "px-7 py-3 text-lg md:text-[22px] font-bold",
+        large: "px-6 py-2.5 text-lg md:text-[20px] font-bold",
+        medium: "px-5 py-2 text-base md:text-lg font-semibold",
+        small: "px-4 py-1.5 text-sm md:text-base font-medium"
     };
 
     // Brand Tint Classes
     const tintClasses = isLeftSide
-        ? "border-orange-500/40 bg-gradient-to-br from-orange-500/[0.12] to-white/[0.02] shadow-[0_8px_32px_rgba(249,115,22,0.15),inset_0_1px_0_0_rgba(255,255,255,0.3)]"
-        : "border-violet-600/40 bg-gradient-to-bl from-violet-600/[0.12] to-white/[0.02] shadow-[0_8px_32px_rgba(124,58,237,0.15),inset_0_1px_0_0_rgba(255,255,255,0.3)]";
+        ? "border-orange-500/20 bg-gradient-to-br from-orange-500/[0.05] to-white/[0.01] shadow-[0_6px_20px_rgba(249,115,22,0.1),inset_0_1px_0_0_rgba(255,255,255,0.2)]"
+        : "border-violet-600/20 bg-gradient-to-bl from-violet-600/[0.05] to-white/[0.01] shadow-[0_6px_20px_rgba(124,58,237,0.1),inset_0_1px_0_0_rgba(255,255,255,0.2)]";
 
     const textGlow = isLeftSide
         ? "drop-shadow-[0_0_12px_rgba(249,115,22,0.4)]"

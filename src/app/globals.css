@@ -44,6 +44,37 @@ body {
   color: var(--color-text);
   font-family: var(--font-inter), sans-serif;
   scroll-behavior: smooth;
+  overscroll-behavior-y: none;
+  /* Prevent bounce effects */
+}
+
+/* Mobile Scroll & Performance Fixes */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Force hardware acceleration for large animated elements */
+.gpu-accelerated {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Mobile: Disable heavy blurs on large areas if needed */
+@media (max-width: 768px) {
+  .blob {
+    opacity: 0.3 !important;
+    /* Reduce blob opacity */
+  }
+}
+
+/* Work Showcase Carousel - Strict horizontal snapping */
+.snap-x-mandatory {
+  scroll-snap-type: x mandatory;
+}
+
+.snap-center {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
 }
 
 /* ===== Unified Glass Panel ===== */

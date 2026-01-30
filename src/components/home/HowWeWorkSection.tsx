@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue } from "framer-motion";
 import { useModal } from "@/components/ui/ModalContext";
@@ -51,8 +51,18 @@ export function HowWeWorkSection() {
         offset: ["start end", "end start"],
     });
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     // Rocket moves faster: traverse larger distance (-20% to 150%) in less scroll time (0 to 0.8)
     const rocketX = useTransform(scrollYProgress, [0, 0.8], ["-20%", "150%"]);
+    const rocketMobileX = useTransform(scrollYProgress, [0, 0.4], ["-50%", "200%"]);
     // Constant Y position (flying straight)
     const rocketY = "20%"; // Flying above the content
 
@@ -64,11 +74,16 @@ export function HowWeWorkSection() {
     // Zero crossing: -20 + (170/0.8)*p = 0 => p = 20 * 0.8 / 170 = 16/170 ~= 0.0941
     const trailWidth = useTransform(scrollYProgress, [0, 0.0941, 0.8], ["0%", "0%", "150%"]);
 
+    // Mobile Trail:
+    // Rocket starts at -50% (p=0). Reaches 0% at p=0.08. Ends at 200% at p=0.4.
+    const trailMobileWidth = useTransform(scrollYProgress, [0, 0.08, 0.4], ["0%", "0%", "200%"]);
+    const trailMobileOpacity = useTransform(scrollYProgress, [0, 0.1, 0.3, 0.4], [0, 0.8, 0.8, 0]);
+
     return (
         <section
             id="services"
             ref={containerRef}
-            className="relative min-h-screen w-full pb-80 pt-0 overflow-hidden z-20 bg-slate-50 mt-[-2px]"
+            className="relative min-h-screen w-full pb-40 md:pb-80 pt-0 overflow-hidden z-20 bg-slate-50 mt-[-2px]"
         >
             {/* Light Background Pattern - Subtle Grid */}
             <div className="absolute inset-0 z-0 opacity-[0.4]"
@@ -83,16 +98,15 @@ export function HowWeWorkSection() {
             <SectionSeparator type="convex" fill="#f8fafc" className="top-0 z-30 pointer-events-none bg-[#0f0516]" />
 
 
-
             {/* Rocket Trail */}
             <motion.div
                 className="absolute h-[3px] pointer-events-none z-10"
                 style={{
                     left: 0,
-                    top: "20%", // Exactly centered with rocket
+                    top: isMobile ? "140px" : "20%", // Match rocket Y
                     translateY: "-50%", // Center vertically
-                    width: trailWidth, // Sync with rocket position
-                    opacity: trailOpacity,
+                    width: isMobile ? trailMobileWidth : trailWidth, // Sync with rocket position
+                    opacity: isMobile ? trailMobileOpacity : trailOpacity,
                     background: `linear-gradient(90deg, 
                         transparent 0%,
                         rgba(251, 146, 60, 0.2) 20%,
@@ -108,16 +122,21 @@ export function HowWeWorkSection() {
 
             {/* Rocket */}
             <motion.div
-                className="absolute z-20 pointer-events-none"
+                className="absolute pointer-events-none"
                 style={{
-                    left: rocketX,
-                    top: rocketY,
-                    rotate: 90,
+                    // Mobile: Align with title, fly fast across. Desktop: Use transforms.
+                    left: isMobile ? rocketMobileX : rocketX,
+                    right: undefined,
+                    top: isMobile ? "140px" : rocketY, // Higher up (140px)
+                    bottom: undefined,
+                    rotate: 90, // Always point right for horizontal flight
                     translateX: "-50%",
                     translateY: "-50%",
                     filter: "drop-shadow(0 0 30px rgba(249, 115, 22, 0.6))",
-                    width: "120px",
-                    height: "120px"
+                    width: isMobile ? "80px" : "120px",
+                    height: isMobile ? "80px" : "120px",
+                    opacity: isMobile ? 0.8 : 1,
+                    zIndex: isMobile ? 20 : 5 // Above content on mobile
                 }}
             >
                 <div className="relative w-full h-full">

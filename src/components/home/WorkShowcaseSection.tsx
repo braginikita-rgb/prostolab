@@ -279,7 +279,7 @@ export function WorkShowcaseSection() {
 
     // Auto-Scroll Logic
     useEffect(() => {
-        if (isDragging) return;
+        if (isDragging || isMobile) return; // Disable auto-scroll on mobile
 
         const interval = setInterval(() => {
             if (containerRef.current) {
@@ -296,7 +296,7 @@ export function WorkShowcaseSection() {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, [isDragging, itemWidth, gap]);
+    }, [isDragging, itemWidth, gap, isMobile]);
 
     const centerPadding = containerWidth > 0 ? (containerWidth / 2) - (itemWidth / 2) : 0;
 
@@ -352,7 +352,7 @@ export function WorkShowcaseSection() {
                 {/* Carousel Container */}
                 <div
                     ref={containerRef}
-                    className="flex overflow-x-auto snap-x snap-mandatory py-10 items-center gap-8 cursor-grab active:cursor-grabbing [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                    className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory py-10 items-center gap-8 cursor-grab active:cursor-grabbing [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] touch-pan-x"
                     onScroll={handleScroll}
                     onMouseDown={onMouseDown}
                     style={{

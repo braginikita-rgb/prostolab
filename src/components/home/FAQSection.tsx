@@ -38,7 +38,7 @@ export function FAQSection() {
     const col2 = faqData.slice(half);
 
     return (
-        <section id="faq" className="relative z-30 w-full bg-[#f8fafc] text-slate-900 py-64 overflow-hidden">
+        <section id="faq" className="relative z-30 w-full bg-[#f8fafc] text-slate-900 py-32 md:py-64 overflow-hidden">
             {/* Top Separator (Dark -> White) */}
             <SectionSeparator type="convex" fill="#f8fafc" className="top-0 z-30 pointer-events-none bg-[#0a0a0a]" />
 
