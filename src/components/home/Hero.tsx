@@ -37,7 +37,7 @@ export function Hero() {
 
                 {/* Main title (Z-20) */}
                 <motion.div
-                    className="relative z-20 text-center px-6 mt-[-5vh]"
+                    className="relative z-20 text-center px-6 mt-[-5vh] will-change-transform"
                     style={{
                         scale: titleScale,
                         opacity: titleOpacity,
@@ -46,8 +46,8 @@ export function Hero() {
                 >
                     {/* Dual Glow Impact: Orange Left / Purple Right */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] max-w-[1000px] pointer-events-none -z-10 opacity-40 mix-blend-screen">
-                        <div className="absolute top-1/2 left-[30%] -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-orange-500/20 blur-[100px] rounded-full" />
-                        <div className="absolute top-1/2 right-[30%] translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-purple-600/20 blur-[100px] rounded-full" />
+                        <div className="absolute top-1/2 left-[30%] -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-orange-500/20 blur-[80px] rounded-full transform-gpu" />
+                        <div className="absolute top-1/2 right-[30%] translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-purple-600/20 blur-[80px] rounded-full transform-gpu" />
                     </div>
 
                     <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-6 relative">

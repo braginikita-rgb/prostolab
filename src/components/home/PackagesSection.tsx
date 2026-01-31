@@ -111,7 +111,7 @@ export function PackagesSection() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-8 items-start">
                     {/* Start */}
                     <motion.div
-                        initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.8 }}
                         className="p-8 rounded-[40px] flex flex-col h-full relative border-orange-500/30 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1),0_10px_40px_-15px_rgba(249,115,22,0.1)] bg-white transform scale-105 z-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_30px_80px_-10px_rgba(249,115,22,0.4)]"
                     >
                         <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white text-sm font-bold rounded-full shadow-lg whitespace-nowrap z-20">
@@ -139,7 +139,7 @@ export function PackagesSection() {
 
                     {/* Business (Popular) */}
                     <motion.div
-                        initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+                        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.8, delay: 0.1 }}
                         className="bg-white/60 backdrop-blur-md p-8 rounded-[40px] flex flex-col h-full hover:bg-white transition-all duration-300 border border-slate-200 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1),0_10px_40px_-15px_rgba(249,115,22,0.1)] hover:-translate-y-1 hover:shadow-[0_20px_40px_-5px_rgba(0,0,0,0.05),0_20px_60px_-15px_rgba(249,115,22,0.3)]"
                     >
                         <h3 className="text-2xl font-bold text-slate-900 mb-2">Бизнес</h3>
@@ -164,7 +164,7 @@ export function PackagesSection() {
 
                     {/* Premium */}
                     <motion.div
-                        initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+                        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.8, delay: 0.2 }}
                         className="bg-white/60 backdrop-blur-md p-8 rounded-[40px] flex flex-col h-full hover:bg-white transition-all duration-300 border border-slate-200 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1),0_10px_40px_-15px_rgba(249,115,22,0.1)] hover:-translate-y-1 hover:shadow-[0_20px_40px_-5px_rgba(0,0,0,0.05),0_20px_60px_-15px_rgba(249,115,22,0.3)]"
                     >
                         <h3 className="text-2xl font-bold text-slate-900 mb-2">Премиум</h3>

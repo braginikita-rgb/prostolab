@@ -11,10 +11,10 @@ interface SectionSeparatorProps {
 
 export function SectionSeparator({ type = 'convex', className = '', fill = '#0a0a0a' }: SectionSeparatorProps) {
     return (
-        <div className={`absolute left-0 right-0 w-full overflow-visible leading-none z-20 h-[40px] md:h-[80px] ${className}`} style={{ bottom: '-1px' }}>
+        <div className={`absolute left-0 right-0 w-full overflow-visible leading-none z-20 h-[40px] md:h-[80px] pointer-events-none ${className}`} style={{ bottom: '-1px' }}>
             {type === 'convex' ? (
                 // Convex: Curves OUTWARD (Valley / Dark Bulge Down) (Light shines from top)
-                <svg className="block w-full h-full overflow-visible" viewBox="0 0 1440 80" preserveAspectRatio="none">
+                <svg className="block w-full h-full overflow-visible transform-gpu" viewBox="0 0 1440 80" preserveAspectRatio="none">
                     <defs>
                         {/* 1. Main Neon Gradient (Vertical: Orange Top -> Purple Bottom) */}
                         <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -37,8 +37,8 @@ export function SectionSeparator({ type = 'convex', className = '', fill = '#0a0
                         </linearGradient>
 
                         {/* Increased Blur for massive glow */}
-                        <filter id="glow1" x="-100%" y="-100%" width="300%" height="300%">
-                            <feGaussianBlur stdDeviation="20" result="blur" />
+                        <filter id="glow1" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="10" result="blur" />
                             <feComposite in="SourceGraphic" in2="blur" operator="over" />
                         </filter>
                     </defs>
@@ -126,8 +126,8 @@ export function SectionSeparator({ type = 'convex', className = '', fill = '#0a0
                             <stop offset="100%" style={{ stopColor: '#000000', stopOpacity: 0.2 }} />
                         </linearGradient>
 
-                        <filter id="glow2" x="-100%" y="-100%" width="300%" height="300%">
-                            <feGaussianBlur stdDeviation="20" result="blur" />
+                        <filter id="glow2" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="10" result="blur" />
                             <feComposite in="SourceGraphic" in2="blur" operator="over" />
                         </filter>
                     </defs>

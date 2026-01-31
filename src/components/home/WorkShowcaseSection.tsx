@@ -421,36 +421,43 @@ function ProjectCard({ project, isActive }: { project: any, isActive: boolean })
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {/* Empty Frame Container */}
-            <div className={`relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-[#151515] border border-white/[0.1] shadow-2xl transition-all duration-500 ${isHovered ? "border-orange-500/50 shadow-[0_0_30px_rgba(249,115,22,0.15)] -translate-y-2" : "hover:border-white/20"} ${isActive ? 'ring-1 ring-white/10' : ''}`}>
+            <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+                className="w-full"
+            >
+                <div className={`relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-[#151515] border border-white/[0.1] shadow-2xl transition-all duration-500 ${isHovered ? "border-orange-500/50 shadow-[0_0_30px_rgba(249,115,22,0.15)] -translate-y-2" : "hover:border-white/20"} ${isActive ? 'ring-1 ring-white/10' : ''}`}>
 
-                {/* Interaction Overlay - Prevents image dragging */}
-                <div className="absolute inset-0 z-50 bg-transparent" />
+                    {/* Interaction Overlay - Prevents image dragging */}
+                    <div className="absolute inset-0 z-50 bg-transparent" />
 
-                {/* Content: Image or Gradient */}
-                {project.image ? (
-                    <div className="absolute inset-0 top-0 bg-[#151515]">
-                        <img
-                            src={project.image}
-                            alt={project.title}
-                            draggable={false}
-                            onDragStart={(e) => e.preventDefault()}
-                            className="w-full h-full object-cover object-top opacity-90 transition-transform duration-700 group-hover:scale-105 select-none pointer-events-none"
-                        />
-                        {/* Subtle overlay for better text contrast if needed? Usually showcase images should be clear. */}
-                    </div>
-                ) : (
-                    <div className={`absolute inset-0 top-0 bg-gradient-to-br ${project.gradient} opacity-50 flex items-center justify-center`}>
-                        <div className="text-white/20 font-bold text-4xl uppercase tracking-widest transform -rotate-12 select-none">
-                            {project.title}
+                    {/* Content: Image or Gradient */}
+                    {project.image ? (
+                        <div className="absolute inset-0 top-0 bg-[#151515]">
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                draggable={false}
+                                onDragStart={(e) => e.preventDefault()}
+                                className="w-full h-full object-cover object-top opacity-90 transition-transform duration-700 group-hover:scale-105 select-none pointer-events-none"
+                            />
+                            {/* Subtle overlay for better text contrast if needed? Usually showcase images should be clear. */}
                         </div>
-                    </div>
-                )}
+                    ) : (
+                        <div className={`absolute inset-0 top-0 bg-gradient-to-br ${project.gradient} opacity-50 flex items-center justify-center`}>
+                            <div className="text-white/20 font-bold text-4xl uppercase tracking-widest transform -rotate-12 select-none">
+                                {project.title}
+                            </div>
+                        </div>
+                    )}
 
-                {/* Hover Glow Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-t from-orange-500/10 to-transparent opacity-0 transition-opacity duration-500 ${isHovered ? "opacity-100" : ""}`} />
+                    {/* Hover Glow Overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-t from-orange-500/10 to-transparent opacity-0 transition-opacity duration-500 ${isHovered ? "opacity-100" : ""}`} />
 
-            </div>
+                </div>
+            </motion.div>
 
 
         </div>

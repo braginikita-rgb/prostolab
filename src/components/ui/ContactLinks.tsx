@@ -8,7 +8,12 @@ export function ContactLinks() {
     const { closeModal } = useModal();
 
     return (
-        <div className="relative w-full max-w-sm mx-auto p-8 rounded-[40px] overflow-hidden border border-white/20 shadow-[0_20px_40px_-5px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.1)_inset]"
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6 }}
+            className="relative w-full max-w-sm mx-auto p-8 rounded-[40px] overflow-hidden border border-white/20 shadow-[0_20px_40px_-5px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.1)_inset]"
             style={{
                 background: 'rgba(20, 20, 20, 0.4)',
                 backdropFilter: 'blur(40px) saturate(180%)',
@@ -65,6 +70,6 @@ export function ContactLinks() {
                     </a>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }

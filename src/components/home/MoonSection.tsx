@@ -25,6 +25,10 @@ export function MoonSection() {
     const isHovering = useRef(false);
 
     useEffect(() => {
+        // Performance: Disable trail on touch devices or small screens
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        if (isTouch) return;
+
         let animationFrameId: number;
         let count = 0;
 
@@ -130,25 +134,25 @@ export function MoonSection() {
                 {/* Moon Visual (Centered) */}
                 <motion.div
                     style={{ scale }}
-                    className="col-start-1 row-start-1 relative w-full max-w-6xl aspect-square z-0 flex items-center justify-center"
+                    className="col-start-1 row-start-1 relative w-full max-w-6xl aspect-square z-0 flex items-center justify-center will-change-transform"
                 >
                     <Image
                         src="/moon_fixed.png"
                         alt="Marketing Moon"
                         fill
                         className="object-contain drop-shadow-2xl opacity-90"
-                        priority
+                        priority={false} // Deferred loading for performance
                         unoptimized
-                        quality={100}
+                        quality={90} // Slightly reduced quality for perf
                     />
                 </motion.div>
 
                 {/* Glass Offer Card (Centered Overlay) */}
                 <motion.div
-                    initial={{ opacity: 0, y: 50 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, margin: "-100px" }}
                     className="col-start-1 row-start-1 relative z-10 w-full glass-panel p-8 md:p-12 rounded-[40px] border-white/20 bg-white/5 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]"
                 >
                     {/* Radial Shadow for Readability */}
