@@ -1,20 +1,24 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Send, ArrowUpRight } from "lucide-react";
 import { useModal } from "@/components/ui/ModalContext";
 
 export function Footer() {
     const { openModal } = useModal();
+    const pathname = usePathname();
     const currentYear = new Date().getFullYear();
+
+    const getHref = (hash: string) => pathname === "/" ? hash : `/${hash}`;
 
     const footerLinks = {
         nav: [
-            { label: "Как мы работаем", href: "#services" },
-            { label: "Пакеты", href: "#packages" },
-            { label: "Реклама", href: "#advertising" },
-            { label: "ЧаВо", href: "#faq" },
+            { label: "Как мы работаем", href: getHref("#services") },
+            { label: "Пакеты", href: getHref("#packages") },
+            { label: "Реклама", href: getHref("#advertising") },
+            { label: "ЧаВо", href: getHref("#faq") },
         ],
         services: [
             { label: "Лендинг", href: "#" },
@@ -106,10 +110,10 @@ export function Footer() {
                         <ul className="grid grid-cols-1 gap-3">
                             {footerLinks.services.map((link) => (
                                 <li key={link.label}>
-                                    <a href={link.href} className="text-slate-400 hover:text-purple-400 transition-colors text-sm flex items-center gap-2 group">
-                                        <span className="w-1 h-1 rounded-full bg-slate-700 group-hover:bg-purple-500 transition-colors" />
+                                    <span className="text-slate-500 text-sm flex items-center gap-2 cursor-default">
+                                        <span className="w-1 h-1 rounded-full bg-slate-700" />
                                         {link.label}
-                                    </a>
+                                    </span>
                                 </li>
                             ))}
                         </ul>

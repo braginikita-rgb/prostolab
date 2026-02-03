@@ -2,14 +2,18 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useModal } from "../ui/ModalContext";
 
 export function Navbar() {
     const { openModal } = useModal();
+    const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isLightSection, setIsLightSection] = useState(false);
+
+    const getHref = (hash: string) => pathname === "/" ? hash : `/${hash}`;
 
     useEffect(() => {
         const checkSection = () => {
@@ -94,13 +98,13 @@ export function Navbar() {
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
-                        <Link href="#services" className="text-sm font-medium text-slate-200 hover:text-white transition-colors drop-shadow-md">
+                        <Link href={getHref("#services")} className="text-sm font-medium text-slate-200 hover:text-white transition-colors drop-shadow-md">
                             Как мы работаем
                         </Link>
-                        <Link href="#packages" className="text-sm font-medium text-slate-200 hover:text-white transition-colors drop-shadow-md">
+                        <Link href={getHref("#packages")} className="text-sm font-medium text-slate-200 hover:text-white transition-colors drop-shadow-md">
                             Пакеты
                         </Link>
-                        <Link href="#advertising" className="text-sm font-medium text-slate-200 hover:text-white transition-colors drop-shadow-md">
+                        <Link href={getHref("#advertising")} className="text-sm font-medium text-slate-200 hover:text-white transition-colors drop-shadow-md">
                             Реклама
                         </Link>
 
@@ -154,7 +158,7 @@ export function Navbar() {
                         <div className="relative flex flex-col gap-1 p-2 pt-14">
                             <motion.div variants={itemVariants}>
                                 <Link
-                                    href="#services"
+                                    href={getHref("#services")}
                                     onClick={closeMenu}
                                     className="block px-3 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-all"
                                 >
@@ -163,7 +167,7 @@ export function Navbar() {
                             </motion.div>
                             <motion.div variants={itemVariants}>
                                 <Link
-                                    href="#packages"
+                                    href={getHref("#packages")}
                                     onClick={closeMenu}
                                     className="block px-3 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-all"
                                 >
@@ -172,7 +176,7 @@ export function Navbar() {
                             </motion.div>
                             <motion.div variants={itemVariants}>
                                 <Link
-                                    href="#advertising"
+                                    href={getHref("#advertising")}
                                     onClick={closeMenu}
                                     className="block px-3 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-all"
                                 >
