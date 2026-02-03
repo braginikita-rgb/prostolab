@@ -149,8 +149,8 @@ export function MoonSection() {
 
                 {/* Glass Offer Card (Centered Overlay) */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     viewport={{ once: true, margin: "-100px" }}
                     className="col-start-1 row-start-1 relative z-10 w-full glass-panel p-8 md:p-12 rounded-[40px] border-white/20 bg-white/5 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]"
@@ -171,8 +171,8 @@ export function MoonSection() {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 mb-10 text-left">
                             {/* Analytics */}
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.1 }}
                                 className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group"
@@ -189,8 +189,8 @@ export function MoonSection() {
 
                             {/* Ads */}
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.2 }}
                                 className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group"
@@ -207,8 +207,8 @@ export function MoonSection() {
 
                             {/* Efficiency */}
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.3 }}
                                 className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group"

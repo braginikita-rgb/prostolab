@@ -72,8 +72,8 @@ export function AboutSection() {
                     ].map((feature, index) => (
                         <motion.div
                             key={feature.title}
-                            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
                             transition={{ duration: 0.5, delay: index * 0.15 }}
                             viewport={{ once: true }}
                             className="h-full"
@@ -95,8 +95,8 @@ export function AboutSection() {
 
                 {/* Stats Row - Safe Claims */}
                 < motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
                     viewport={{ once: true }}
                     className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-6"
