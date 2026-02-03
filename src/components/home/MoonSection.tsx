@@ -134,16 +134,16 @@ export function MoonSection() {
                 {/* Moon Visual (Centered) */}
                 <motion.div
                     style={{ scale }}
-                    className="col-start-1 row-start-1 relative w-full max-w-6xl aspect-square z-0 flex items-center justify-center will-change-transform"
+                    className="col-start-1 row-start-1 relative w-full max-w-6xl aspect-square z-0 flex items-center justify-center"
                 >
                     <Image
                         src="/moon_fixed.png"
                         alt="Marketing Moon"
                         fill
                         className="object-contain drop-shadow-2xl opacity-90"
-                        priority={false} // Deferred loading for performance
+                        priority={true}
                         unoptimized
-                        quality={90} // Slightly reduced quality for perf
+                        quality={90}
                     />
                 </motion.div>
 
