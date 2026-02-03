@@ -5,10 +5,16 @@ import { Resend } from 'resend';
 
 export async function POST(req: Request) {
     try {
-        const apiKey = process.env.RESEND_API_KEY;
+        let apiKey = process.env.RESEND_API_KEY;
+
+        // Handle cases where env var might be the string "undefined" or whitespace
+        if (apiKey && apiKey.trim() === "undefined") apiKey = undefined;
+        if (apiKey) apiKey = apiKey.trim();
+
         if (!apiKey) {
+            console.error("RESEND_API_KEY is missing or invalid in environment variables.");
             return NextResponse.json(
-                { error: 'RESEND_API_KEY is missing' },
+                { error: 'RESEND_API_KEY is missing. Please add it to Vercel Environment Variables.' },
                 { status: 500 }
             );
         }
