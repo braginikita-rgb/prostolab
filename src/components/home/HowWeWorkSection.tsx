@@ -265,10 +265,11 @@ function StepCard({ step, index }: { step: any, index: number }) {
         <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
             viewport={{ once: true }}
             onMouseMove={handleMouseMove}
-            className="group relative bg-white/60 backdrop-blur-md p-8 rounded-[40px] flex flex-col items-start gap-4 hover:bg-white/80 transition-all duration-300 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1),0_10px_40px_-15px_rgba(249,115,22,0.1)] hover:-translate-y-1 hover:shadow-[0_20px_40px_-5px_rgba(0,0,0,0.05),0_20px_60px_-15px_rgba(249,115,22,0.3)] border border-slate-200 overflow-hidden opacity-0"
+            style={{ opacity: 0 }}
+            className="group relative bg-white/60 backdrop-blur-md p-8 rounded-[40px] flex flex-col items-start gap-4 hover:bg-white/80 transition-all duration-300 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1),0_10px_40px_-15px_rgba(249,115,22,0.1)] hover:-translate-y-1 hover:shadow-[0_20px_40px_-5px_rgba(0,0,0,0.05),0_20px_60px_-15px_rgba(249,115,22,0.3)] border border-slate-200 overflow-hidden"
         >
             {/* Glow Effect */}
             <motion.div
@@ -320,10 +321,11 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
         <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: index * 0.05 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.05 }}
             viewport={{ once: true }}
             onMouseMove={handleMouseMove}
-            className="group relative bg-white/80 backdrop-blur-sm p-8 rounded-[40px] border border-slate-200 shadow-sm hover:shadow-[0_10px_30px_-5px_rgba(249,115,22,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center gap-4 overflow-hidden opacity-0"
+            style={{ opacity: 0 }}
+            className="group relative bg-white/80 backdrop-blur-sm p-8 rounded-[40px] border border-slate-200 shadow-sm hover:shadow-[0_10px_30px_-5px_rgba(249,115,22,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center gap-4 overflow-hidden"
         >
             {/* Glow Effect */}
             <motion.div

@@ -78,7 +78,7 @@ export function AboutSection() {
                             viewport={{ once: true }}
                             className="h-full"
                         >
-                            <div className="relative overflow-hidden rounded-[40px] bg-white/[0.03] backdrop-blur-md border border-white/[0.1] p-8 h-full flex flex-col items-start shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.08] hover:shadow-[0_0_25px_rgba(249,115,22,0.4)] group opacity-0">
+                            <div className="relative overflow-hidden rounded-[40px] bg-white/[0.03] backdrop-blur-md border border-white/[0.1] p-8 h-full flex flex-col items-start shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.08] hover:shadow-[0_0_25px_rgba(249,115,22,0.4)] group">
                                 <div className="text-4xl mb-6 p-4 rounded-[40px] bg-white/[0.05] border border-white/[0.1] backdrop-blur-md relative z-10">
                                     {feature.icon}
                                 </div>
