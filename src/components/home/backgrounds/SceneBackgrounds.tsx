@@ -10,7 +10,7 @@ const BackgroundImage = ({ src, alt, opacity = 1.0 }: { src: string, alt: string
             alt={alt}
             fill
             className="object-cover object-center"
-            quality={95}
+            quality={75}
             priority
             style={{ opacity }}
         />

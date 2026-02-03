@@ -170,7 +170,13 @@ export function MoonSection() {
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 mb-10 text-left">
                             {/* Analytics */}
-                            <div className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.1 }}
+                                className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group"
+                            >
                                 <h4 className="text-white font-bold mb-4 flex items-center gap-3 text-xl transition-colors">
                                     <span className="w-3 h-3 rounded-full bg-orange-500 shadow-[0_0_15px_rgba(249,115,22,0.6)]" /> Аналитика
                                 </h4>
@@ -179,10 +185,16 @@ export function MoonSection() {
                                     <li>События и цели (клики, формы)</li>
                                     <li>UTM + отчёты сквозной аналитики</li>
                                 </ul>
-                            </div>
+                            </motion.div>
 
                             {/* Ads */}
-                            <div className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.2 }}
+                                className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group"
+                            >
                                 <h4 className="text-white font-bold mb-4 flex items-center gap-3 text-xl transition-colors">
                                     <span className="w-3 h-3 rounded-full bg-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.6)]" /> Реклама
                                 </h4>
@@ -191,10 +203,16 @@ export function MoonSection() {
                                     <li>Креативы и офферы</li>
                                     <li>Оптимизация CPA</li>
                                 </ul>
-                            </div>
+                            </motion.div>
 
                             {/* Efficiency */}
-                            <div className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.3 }}
+                                className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group"
+                            >
                                 <h4 className="text-white font-bold mb-4 flex items-center gap-3 text-xl transition-colors">
                                     <span className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)]" /> Эффективность
                                 </h4>
@@ -203,7 +221,7 @@ export function MoonSection() {
                                     <li>CRO Лендинга</li>
                                     <li>Рекомендации</li>
                                 </ul>
-                            </div>
+                            </motion.div>
                         </div>
 
                         <div className="flex flex-col items-center">

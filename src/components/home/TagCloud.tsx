@@ -168,7 +168,7 @@ function Tag({ data, index, reducedMotion, isMobile, mouseX, mouseY }: TagProps)
                     <motion.div
                         className={`
                             relative flex items-center justify-center rounded-full 
-                            backdrop-blur-[20px] border 
+                            ${isMobile ? '' : 'backdrop-blur-[20px]'} border 
                             text-slate-50 tracking-wide overflow-hidden
                             transition-all duration-500 cursor-default pointer-events-auto
                             hover:scale-105 hover:border-white/60 hover:bg-white/[0.2]

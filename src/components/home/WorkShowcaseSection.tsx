@@ -369,6 +369,7 @@ export function WorkShowcaseSection() {
                                 index={index}
                                 scrollX={scrollX}
                                 itemWidth={itemWidth}
+                                isMobile={isMobile}
                             />
                         ))}
                     </AnimatePresence>
@@ -379,7 +380,7 @@ export function WorkShowcaseSection() {
     );
 }
 
-function CarouselItem({ project, index, scrollX, itemWidth }: { project: any, index: number, scrollX: number, itemWidth: number }) {
+function CarouselItem({ project, index, scrollX, itemWidth, isMobile }: { project: any, index: number, scrollX: number, itemWidth: number, isMobile: boolean }) {
     const gap = 32;
     const itemCenter = index * (itemWidth + gap);
     const distance = Math.abs(scrollX - itemCenter);
@@ -401,9 +402,9 @@ function CarouselItem({ project, index, scrollX, itemWidth }: { project: any, in
             className="snap-center shrink-0 flex flex-col gap-6"
             style={{
                 width: itemWidth,
-                scale,
-                opacity,
-                filter: `blur(${distance > maxEffectDistance / 2 ? 2 : 0}px)`,
+                scale: isMobile ? 1 : scale,
+                opacity: isMobile ? 1 : opacity,
+                filter: isMobile ? 'none' : `blur(${distance > maxEffectDistance / 2 ? 2 : 0}px)`,
                 transition: 'all 0.1s ease-out'
             }}
         >
