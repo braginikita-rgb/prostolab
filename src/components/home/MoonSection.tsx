@@ -16,8 +16,10 @@ export function MoonSection() {
         offset: ["start end", "end start"],
     });
 
-    const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 1.1]);
-    const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"],
+    });
 
     // Comet Trail Logic
     const [trail, setTrail] = useState<{ x: number; y: number; id: number }[]>([]);
@@ -133,7 +135,6 @@ export function MoonSection() {
 
                 {/* Moon Visual (Centered) */}
                 <motion.div
-                    style={{ scale }}
                     className="col-start-1 row-start-1 relative w-full max-w-6xl aspect-square z-0 flex items-center justify-center"
                 >
                     <Image
@@ -153,8 +154,10 @@ export function MoonSection() {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.9, ease: "easeOut", delay: 0.1 }}
                     viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.9, ease: "easeOut", delay: 0.1 }}
+                    viewport={{ once: true, margin: "-50px" }}
                     style={{ opacity: 0 }}
-                    className="col-start-1 row-start-1 relative z-10 w-full glass-panel p-8 md:p-12 rounded-[40px] border-white/20 bg-white/5 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]"
+                    className="col-start-1 row-start-1 relative z-10 w-full glass-panel p-8 md:p-12 rounded-[40px] border-white/20 bg-white/5 backdrop-blur-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] will-change-[opacity]"
                 >
                     {/* Radial Shadow for Readability */}
                     <div className="absolute inset-0 bg-radial-gradient from-black/40 to-transparent rounded-[40px] pointer-events-none" />
