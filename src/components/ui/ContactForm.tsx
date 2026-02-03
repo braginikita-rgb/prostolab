@@ -138,7 +138,7 @@ export const ContactForm = () => {
                         <button
                             type="button"
                             onClick={() => setFormData({ ...formData, projectType: "landing" })}
-                            className={`p-4 rounded-xl border transition-all text-center ${formData.projectType === "landing"
+                            className={`p-4 rounded-xl border transition-all text-center flex items-center justify-center ${formData.projectType === "landing"
                                 ? "bg-orange-500/20 border-orange-500 text-orange-400"
                                 : "bg-white/5 border-white/10 text-slate-400 hover:bg-white/10"
                                 }`}
@@ -148,7 +148,7 @@ export const ContactForm = () => {
                         <button
                             type="button"
                             onClick={() => setFormData({ ...formData, projectType: "multipage" })}
-                            className={`p-4 rounded-xl border transition-all text-center ${formData.projectType === "multipage"
+                            className={`p-4 rounded-xl border transition-all text-center flex items-center justify-center ${formData.projectType === "multipage"
                                 ? "bg-purple-500/20 border-purple-500 text-purple-400"
                                 : "bg-white/5 border-white/10 text-slate-400 hover:bg-white/10"
                                 }`}
