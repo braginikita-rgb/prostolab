@@ -26,6 +26,7 @@ export const ContactForm = () => {
     });
 
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const toggleContactMethod = (method: ContactMethod) => {
         setFormData(prev => {
@@ -41,6 +42,7 @@ export const ContactForm = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus("loading");
+        setErrorMessage("");
 
         try {
             const res = await fetch("/api/send", {
@@ -48,6 +50,8 @@ export const ContactForm = () => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
+
+            const data = await res.json();
 
             if (res.ok) {
                 setStatus("success");
@@ -66,9 +70,11 @@ export const ContactForm = () => {
                 });
             } else {
                 setStatus("error");
+                setErrorMessage(data.error || "Произошла неизвестная ошибка");
             }
         } catch (error) {
             setStatus("error");
+            setErrorMessage("Ошибка сети. Проверьте соединение.");
         }
     };
 
@@ -363,7 +369,7 @@ export const ContactForm = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-center text-sm"
                     >
-                        Произошла ошибка. Пожалуйста, попробуйте еще раз.
+                        {errorMessage || "Произошла ошибка. Пожалуйста, попробуйте еще раз."}
                     </motion.div>
                 )}
             </form>
