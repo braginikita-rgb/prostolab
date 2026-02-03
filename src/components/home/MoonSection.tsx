@@ -153,7 +153,7 @@ export function MoonSection() {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    className="col-start-1 row-start-1 relative z-10 w-full glass-panel p-8 md:p-12 rounded-[40px] border-white/20 bg-white/5 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]"
+                    className="col-start-1 row-start-1 relative z-10 w-full glass-panel p-8 md:p-12 rounded-[40px] border-white/20 bg-white/5 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] opacity-0"
                 >
                     {/* Radial Shadow for Readability */}
                     <div className="absolute inset-0 bg-radial-gradient from-black/40 to-transparent rounded-[40px] pointer-events-none" />
@@ -175,7 +175,7 @@ export function MoonSection() {
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.1 }}
-                                className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group"
+                                className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group opacity-0"
                             >
                                 <h4 className="text-white font-bold mb-4 flex items-center gap-3 text-xl transition-colors">
                                     <span className="w-3 h-3 rounded-full bg-orange-500 shadow-[0_0_15px_rgba(249,115,22,0.6)]" /> Аналитика
@@ -193,7 +193,7 @@ export function MoonSection() {
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.2 }}
-                                className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group"
+                                className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group opacity-0"
                             >
                                 <h4 className="text-white font-bold mb-4 flex items-center gap-3 text-xl transition-colors">
                                     <span className="w-3 h-3 rounded-full bg-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.6)]" /> Реклама
@@ -211,7 +211,7 @@ export function MoonSection() {
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.3 }}
-                                className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group"
+                                className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group opacity-0"
                             >
                                 <h4 className="text-white font-bold mb-4 flex items-center gap-3 text-xl transition-colors">
                                     <span className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)]" /> Эффективность
