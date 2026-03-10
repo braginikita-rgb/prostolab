@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { SectionSeparator } from "../ui/SectionSeparator";
 
 // Tabs / Categories (Russian labels as requested: Блог, E-commerce, бизнес, финансы)
@@ -437,12 +438,13 @@ function ProjectCard({ project, isActive }: { project: any, isActive: boolean })
                     {/* Content: Image or Gradient */}
                     {project.image ? (
                         <div className="absolute inset-0 top-0 bg-[#151515]">
-                            <img
+                            <Image
                                 src={project.image}
                                 alt={project.title}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                className="object-cover object-top opacity-90 transition-transform duration-700 group-hover:scale-105 select-none pointer-events-none"
                                 draggable={false}
-                                onDragStart={(e) => e.preventDefault()}
-                                className="w-full h-full object-cover object-top opacity-90 transition-transform duration-700 group-hover:scale-105 select-none pointer-events-none"
                             />
                             {/* Subtle overlay for better text contrast if needed? Usually showcase images should be clear. */}
                         </div>

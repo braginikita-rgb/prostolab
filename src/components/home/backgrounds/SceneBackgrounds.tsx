@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 // SHARED IMAGE COMPONENT
 // Renders the illustrated background with a consistent "cinematic vignette" to ensure text readability
-const BackgroundImage = ({ src, alt, opacity = 1.0 }: { src: string, alt: string, opacity?: number }) => (
+const BackgroundImage = ({ src, alt, opacity = 1.0, priority = false }: { src: string, alt: string, opacity?: number, priority?: boolean }) => (
     <div className="absolute inset-0 z-[-1]">
         <Image
             src={src}
@@ -11,7 +11,7 @@ const BackgroundImage = ({ src, alt, opacity = 1.0 }: { src: string, alt: string
             fill
             className="object-cover object-center"
             quality={75}
-            priority
+            priority={priority}
             style={{ opacity }}
         />
         {/* Cinematic Vignette Overlay to blend edges and darken for text readability */}
@@ -29,7 +29,7 @@ interface SceneProps {
 // SCENE 1: Hero (Purple Desert Sunset)
 export const Scene1Bg = ({ className, style, mode = 'full' }: SceneProps) => (
     <div className={`absolute inset-0 z-[-1] pointer-events-none ${className}`} style={style}>
-        <BackgroundImage src="/assets/backgrounds/hero_landscape.png" alt="Hero Landscape" opacity={1.0} />
+        <BackgroundImage src="/assets/backgrounds/hero_landscape.png" alt="Hero Landscape" opacity={1.0} priority={true} />
 
         {/* Dark Bottom Overlay */}
         <div className="absolute bottom-0 left-0 w-full h-[50%] bg-gradient-to-t from-black/90 via-black/30 to-transparent" />

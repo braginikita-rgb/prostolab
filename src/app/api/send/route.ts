@@ -12,9 +12,16 @@ export async function POST(req: Request) {
         if (apiKey) apiKey = apiKey.trim();
 
         if (!apiKey) {
-            console.error("RESEND_API_KEY is missing or invalid in environment variables.");
+            console.error("RESEND_API_KEY is missing. Env check:", process.env);
             return NextResponse.json(
-                { error: 'RESEND_API_KEY is missing. Please add it to Vercel Environment Variables.' },
+                {
+                    error: `RESEND_API_KEY is missing.`,
+                    debug: {
+                        hasKey: !!process.env.RESEND_API_KEY,
+                        keyLength: process.env.RESEND_API_KEY ? process.env.RESEND_API_KEY.length : 0,
+                        nodeEnv: process.env.NODE_ENV
+                    }
+                },
                 { status: 500 }
             );
         }
