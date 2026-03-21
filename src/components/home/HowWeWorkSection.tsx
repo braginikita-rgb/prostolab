@@ -107,6 +107,10 @@ export function HowWeWorkSection() {
                     translateY: "-50%", // Center vertically
                     width: isMobile ? trailMobileWidth : trailWidth, // Sync with rocket position
                     opacity: isMobile ? trailMobileOpacity : trailOpacity,
+                    willChange: "width, opacity",
+                    WebkitBackfaceVisibility: "hidden",
+                    backfaceVisibility: "hidden",
+                    transform: "translateZ(0)",
                     background: `linear-gradient(90deg, 
                         transparent 0%,
                         rgba(251, 146, 60, 0.2) 20%,
@@ -132,6 +136,10 @@ export function HowWeWorkSection() {
                     rotate: 90, // Always point right for horizontal flight
                     translateX: "-50%",
                     translateY: "-50%",
+                    willChange: "left",
+                    WebkitBackfaceVisibility: "hidden",
+                    backfaceVisibility: "hidden",
+                    transform: "translateZ(0)",
                     filter: "drop-shadow(0 0 30px rgba(249, 115, 22, 0.6))",
                     width: isMobile ? "80px" : "120px",
                     height: isMobile ? "80px" : "120px",

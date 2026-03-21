@@ -163,23 +163,26 @@ export const ContactForm = () => {
                         </button>
                     </div>
 
-                    <AnimatePresence>
+                    <AnimatePresence initial={false}>
                         {formData.projectType === "multipage" && (
                             <motion.div
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{ height: "auto", opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
                                 className="overflow-hidden"
                             >
-                                <label className={labelStyles}>Примерное количество страниц</label>
-                                <input
-                                    type="number"
-                                    min="2"
-                                    placeholder="Например: 5"
-                                    className={inputStyles}
-                                    value={formData.pagesCount || ""}
-                                    onChange={(e) => setFormData({ ...formData, pagesCount: parseInt(e.target.value) || 0 })}
-                                />
+                                <div className="pt-4 pb-1">
+                                    <label className={labelStyles}>Примерное количество страниц</label>
+                                    <input
+                                        type="number"
+                                        min="2"
+                                        placeholder="Например: 5"
+                                        className={inputStyles}
+                                        value={formData.pagesCount || ""}
+                                        onChange={(e) => setFormData({ ...formData, pagesCount: parseInt(e.target.value) || 0 })}
+                                    />
+                                </div>
                             </motion.div>
                         )}
                     </AnimatePresence>
@@ -276,21 +279,24 @@ export const ContactForm = () => {
                         })}
                     </div>
 
-                    <AnimatePresence>
+                    <AnimatePresence initial={false}>
                         {formData.contactMethods.includes("telegram") && (
                             <motion.div
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{ height: "auto", opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
                                 className="overflow-hidden"
                             >
-                                <input
-                                    type="text"
-                                    placeholder="@username (Telegram)"
-                                    className={`${inputStyles} mt-3`}
-                                    value={formData.telegramUsername}
-                                    onChange={(e) => setFormData({ ...formData, telegramUsername: e.target.value })}
-                                />
+                                <div className="pt-3 pb-1">
+                                    <input
+                                        type="text"
+                                        placeholder="@username (Telegram)"
+                                        className={inputStyles}
+                                        value={formData.telegramUsername}
+                                        onChange={(e) => setFormData({ ...formData, telegramUsername: e.target.value })}
+                                    />
+                                </div>
                             </motion.div>
                         )}
                     </AnimatePresence>

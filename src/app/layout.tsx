@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
+import { CookieConsent } from "@/components/ui/CookieConsent";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -30,6 +32,8 @@ export default function RootLayout({
                 <div className="relative z-10">
                     {children}
                 </div>
+                
+                <CookieConsent />
             </body>
         </html>
     );
