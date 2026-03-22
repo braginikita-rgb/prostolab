@@ -18,7 +18,7 @@ export const CookieConsent = () => {
 
     const handleAccept = () => {
         localStorage.setItem("cookie_consent", "accepted");
-        // Example: logic to enable Google Analytics or Yandex Metrica could go here
+        window.dispatchEvent(new Event("cookie_consent_updated"));
         setIsVisible(false);
     };
 

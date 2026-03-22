@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 
 import { CookieConsent } from "@/components/ui/CookieConsent";
+import { YandexMetrika } from "@/components/analytics/YandexMetrika";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function RootLayout({
                 </div>
                 
                 <CookieConsent />
+                <YandexMetrika />
             </body>
         </html>
     );

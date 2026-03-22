@@ -166,11 +166,10 @@ export const ContactForm = () => {
                     <AnimatePresence initial={false}>
                         {formData.projectType === "multipage" && (
                             <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.3, ease: "easeInOut" }}
-                                className="overflow-hidden"
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.2 }}
                             >
                                 <div className="pt-4 pb-1">
                                     <label className={labelStyles}>Примерное количество страниц</label>
@@ -282,11 +281,10 @@ export const ContactForm = () => {
                     <AnimatePresence initial={false}>
                         {formData.contactMethods.includes("telegram") && (
                             <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.3, ease: "easeInOut" }}
-                                className="overflow-hidden"
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.2 }}
                             >
                                 <div className="pt-3 pb-1">
                                     <input
