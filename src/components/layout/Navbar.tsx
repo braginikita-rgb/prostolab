@@ -107,6 +107,9 @@ export function Navbar() {
                         <Link href={getHref("#advertising")} className="text-sm font-medium text-slate-200 hover:text-white transition-colors drop-shadow-md">
                             Реклама
                         </Link>
+                        <Link href={getHref("#contacts")} className="text-sm font-medium text-slate-200 hover:text-white transition-colors drop-shadow-md">
+                            Контакты
+                        </Link>
 
                         {/* CTA Button */}
                         <button
@@ -181,6 +184,15 @@ export function Navbar() {
                                     className="block px-3 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-all"
                                 >
                                     Реклама
+                                </Link>
+                            </motion.div>
+                            <motion.div variants={itemVariants}>
+                                <Link
+                                    href={getHref("#contacts")}
+                                    onClick={closeMenu}
+                                    className="block px-3 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-all"
+                                >
+                                    Контакты
                                 </Link>
                             </motion.div>
 

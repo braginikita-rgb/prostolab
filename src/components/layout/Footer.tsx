@@ -38,7 +38,7 @@ export function Footer() {
     };
 
     return (
-        <footer className="relative w-full pt-20 pb-10 mt-0 overflow-hidden bg-black">
+        <footer id="contacts" className="relative w-full pt-20 pb-10 mt-0 overflow-hidden bg-black">
             {/* Background */}
             <div className="absolute inset-0 z-0 pointer-events-none bg-black" />
 
@@ -123,6 +123,17 @@ export function Footer() {
                     <div className="lg:col-span-4 space-y-8">
                         <div>
                             <h4 className="text-white font-semibold mb-6">Контакты</h4>
+                            <div className="mb-6">
+                                <a href="tel:+79939578800" className="text-2xl font-bold text-white hover:text-orange-400 transition-colors block mb-1">
+                                    +7 993 957 88 00
+                                </a>
+                                <span className="text-sm text-slate-400 block mb-1">
+                                    (10:00 - 19:00)
+                                </span>
+                                <span className="text-sm text-slate-500 block">
+                                    (Telegram / Whatsapp / Max)
+                                </span>
+                            </div>
                             <ul className="space-y-4">
                                 <li className="flex flex-col gap-1">
                                     <span className="text-xs text-slate-500 uppercase tracking-wider">Telegram</span>

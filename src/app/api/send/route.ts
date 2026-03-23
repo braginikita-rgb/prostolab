@@ -36,13 +36,14 @@ export async function POST(req: Request) {
             idea,
             contactMethods,
             telegramUsername,
+            maxPhone,
             consentData,
             consentPromo
         } = await req.json();
 
-        if (!name || !email || !phone) {
+        if (!name || !phone) {
             return NextResponse.json(
-                { error: 'Missing required contact fields' },
+                { error: 'Missing required contact fields (Name and Phone are required)' },
                 { status: 400 }
             );
         }
@@ -61,6 +62,7 @@ Email: ${email}
 Phone: ${phone}
 Preferred Contact Methods: ${preferredMethods}
 ${telegramUsername ? `Telegram Username: ${telegramUsername}` : ''}
+${maxPhone ? `Max Phone: ${maxPhone}` : ''}
 
 PROJECT INFORMATION:
 Type: ${projectType === 'multipage' ? `Multi-page (${pagesCount} pages)` : 'Landing Page'}
@@ -68,20 +70,24 @@ Purpose: ${sitePurpose}
 
 IDEA DESCRIPTION:
 ${idea || 'No description provided.'}
-${idea || 'No description provided.'}
 
 User Consents:
 - Personal Data Processing: ${consentData ? 'GRANTED' : 'DENIED'}
 - Promotional Emails: ${consentPromo ? 'GRANTED' : 'DENIED'}
     `;
 
-        const data = await resend.emails.send({
+        const emailOptions: any = {
             from: 'Contact Form <onboarding@resend.dev>',
             to: 'delivered@resend.dev', // Default for testing. User needs verification for others.
             subject: `New Inquiry from ${name}: ${projectType.toUpperCase()}`,
             text: emailContent,
-            replyTo: email as string,
-        });
+        };
+
+        if (email) {
+            emailOptions.replyTo = email as string;
+        }
+
+        const data = await resend.emails.send(emailOptions);
 
         return NextResponse.json(data);
     } catch (error) {

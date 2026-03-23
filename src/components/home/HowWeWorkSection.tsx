@@ -28,7 +28,7 @@ const steps = [
     {
         number: "04",
         title: "Запуск",
-        description: "Готово за неделю"
+        description: "В согласованные сроки"
     }
 ];
 
@@ -103,7 +103,7 @@ export function HowWeWorkSection() {
                 className="absolute h-[3px] pointer-events-none z-10"
                 style={{
                     left: 0,
-                    top: isMobile ? "140px" : "20%", // Match rocket Y
+                    top: isMobile ? "380px" : "420px", // Match rocket Y
                     translateY: "-50%", // Center vertically
                     width: isMobile ? trailMobileWidth : trailWidth, // Sync with rocket position
                     opacity: isMobile ? trailMobileOpacity : trailOpacity,
@@ -131,7 +131,7 @@ export function HowWeWorkSection() {
                     // Mobile: Align with title, fly fast across. Desktop: Use transforms.
                     left: isMobile ? rocketMobileX : rocketX,
                     right: undefined,
-                    top: isMobile ? "140px" : rocketY, // Higher up (140px)
+                    top: isMobile ? "380px" : "420px", // Flying between title and cards
                     bottom: undefined,
                     rotate: 90, // Always point right for horizontal flight
                     translateX: "-50%",
@@ -165,7 +165,7 @@ export function HowWeWorkSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="text-center mb-20 relative"
+                    className="text-center mb-32 md:mb-40 relative"
                 >
                     <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-slate-900">
                         Как мы работаем
@@ -182,13 +182,26 @@ export function HowWeWorkSection() {
                     ))}
                 </div>
 
+                {/* Elegant Launch Text */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    viewport={{ once: true }}
+                    className="mt-16 sm:mt-20 flex justify-center relative z-20"
+                >
+                    <h3 className="text-2xl md:text-3xl font-medium text-slate-800 tracking-tight text-center">
+                        Запустим ваш бизнес <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-400 font-semibold">в кратчайшие сроки</span>
+                    </h3>
+                </motion.div>
+
                 {/* Secondary Block: Services */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="mt-40 mb-24"
+                    className="mt-16 sm:mt-20 mb-24"
                 >
                     {/* Divider Line */}
                     <div className="w-full max-w-3xl h-1 bg-gradient-to-r from-orange-300 via-orange-500 to-orange-300 rounded-full mx-auto mb-24 shadow-[0_0_25px_rgba(249,115,22,0.6)]" />

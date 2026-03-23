@@ -149,8 +149,8 @@ export function MoonSection() {
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-
-                    style={{ opacity: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
                     className="col-start-1 row-start-1 relative z-10 w-full glass-panel p-8 md:p-12 rounded-[40px] border-white/20 bg-white/5 backdrop-blur-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] will-change-[opacity]"
                 >
                     {/* Radial Shadow for Readability */}
@@ -173,7 +173,6 @@ export function MoonSection() {
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                                style={{ opacity: 0 }}
                                 className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group"
                             >
                                 <h4 className="text-white font-bold mb-4 flex items-center gap-3 text-xl transition-colors">
@@ -192,7 +191,6 @@ export function MoonSection() {
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                                style={{ opacity: 0 }}
                                 className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group"
                             >
                                 <h4 className="text-white font-bold mb-4 flex items-center gap-3 text-xl transition-colors">
@@ -211,7 +209,6 @@ export function MoonSection() {
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                                style={{ opacity: 0 }}
                                 className="bg-black/60 p-5 lg:p-6 rounded-2xl border border-white/10 hover:bg-black/80 transition-colors group"
                             >
                                 <h4 className="text-white font-bold mb-4 flex items-center gap-3 text-xl transition-colors">
